@@ -17,8 +17,9 @@ import {
     Eye,
     EyeSlash
 } from '@gravity-ui/icons';
-import { signIn } from "@/lib/auth-client";
+
 import Link from "next/link";
+import { signIn } from "@/lib/auth-client";
 
 export default function SignInPage() {
     const router = useRouter();
