@@ -23,3 +23,19 @@ export const getDestinationsById = async (id) => {
 export const getManageItems = async (email, role) => {
     return serverFetch(`/api/manage-destinations?email=${email}&role=${role}`);
 };
+
+
+export const getLatestItems = async () => {
+    return serverFetch(`/api/destinations-latest`)
+
+}
+
+
+export const getRegionStats = async () => {
+    return serverFetch("/api/region-stats");
+};
+
+
+export const getPlatformStats = async () => {
+    return serverFetch("/api/stats");
+};
