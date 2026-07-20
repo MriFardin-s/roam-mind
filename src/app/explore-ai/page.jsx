@@ -1,6 +1,13 @@
+import { getUserSession } from "@/lib/core/session";
 import ChatBox from "./ChatBox";
+import { redirect } from "next/navigation";
 
-export default function AskRoamMindPage() {
+
+export default async function AskRoamMindPage() {
+      const user = await getUserSession()
+        if (!user?.email || !user?.role) {
+            redirect("/auth/signin");
+        }
     return (
         <div className="max-w-5xl mx-auto px-4 py-8 min-h-[calc(100vh-80px)] flex flex-col">
             <div className="mb-6 text-center sm:text-left">

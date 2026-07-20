@@ -72,7 +72,7 @@ export default function SignInPage() {
             setPassword("admin123");
         } else {
             setEmail("admin@g.com");
-            setPassword("Admin123");
+            setPassword("admin123");
         }
     };
 

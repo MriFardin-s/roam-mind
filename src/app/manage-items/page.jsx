@@ -7,8 +7,8 @@ import ManageItemsTable from './ManageTable';
 
 const ManageItemsPage = async () => {
     const user = await getUserSession();
-    console.log(user)
-    if (!user.email || !user.role) {
+    // console.log(user)
+    if (!user?.email || !user?.role) {
         redirect("/auth/signin");
     }
 

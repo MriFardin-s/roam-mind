@@ -1,8 +1,15 @@
 import { getAIRecommendations } from '@/lib/action/destinations';
 import React from 'react';
 import AiRecommendedForm from './AiRecommendedForm';
+import { getUserSession } from '@/lib/core/session';
+import { redirect } from 'next/navigation';
 
 const AiRecommendedPage = async ({ searchParams }) => {
+
+    const user = await getUserSession()
+    if (!user?.email || !user?.role) {
+        redirect("/auth/signin");
+    }
     const resolvedSearchParams = await searchParams;
     const categoryQuery = resolvedSearchParams?.category;
     const regionQuery = resolvedSearchParams?.region;
