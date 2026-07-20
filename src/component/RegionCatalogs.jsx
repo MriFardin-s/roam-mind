@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -7,13 +5,20 @@ import { ArrowRight, Globe, MapPin } from 'lucide-react';
 import { getRegionStats } from '@/lib/api/destinations';
 
 const RegionCatalogs = async () => {
-    const response = await getRegionStats();
+    let response = null;
+
+    try {
+        response = await getRegionStats();
+    } catch (error) {
+        console.error("Failed to fetch region stats:", error);
+    }
+
     const stats = response?.data || { domestic: 0, international: 0 };
 
     const regions = [
         {
             id: "domestic",
-            title: "Domestic Wonders",
+            title: "Domestic Roam Mind",
             description: "Explore the breathtaking landscapes and hidden treasures right within the homeland borders.",
             count: stats.domestic,
             query: "domestic",

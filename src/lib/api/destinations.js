@@ -1,4 +1,4 @@
-import { serverFetch } from "../core/server"
+import { protectedFetch, serverFetch } from "../core/server"
 
 
 export const getDestinations = async (filters = {}) => {
@@ -21,7 +21,7 @@ export const getDestinationsById = async (id) => {
 }
 
 export const getManageItems = async (email, role) => {
-    return serverFetch(`/api/manage-destinations?email=${email}&role=${role}`);
+    return protectedFetch(`/api/manage-destinations?email=${email}&role=${role}`);
 };
 
 
@@ -39,3 +39,4 @@ export const getRegionStats = async () => {
 export const getPlatformStats = async () => {
     return serverFetch("/api/stats");
 };
+

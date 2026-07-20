@@ -1,5 +1,17 @@
+'use server'
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+import { getUserToken } from "./session";
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ;
+
+
+export const authHeader = async () => {
+    const token = await getUserToken();
+    const header = token ? {
+        authorization: `Bearer ${token}`
+    } : {};
+    return header
+}
 
 
 export const serverFetch = async (path) => {
@@ -11,26 +23,42 @@ export const serverFetch = async (path) => {
 }
 
 
+export const protectedFetch = async (path) => {
+    const res = await fetch(`${baseUrl}${path}`, {
+        cache: "no-store",
+        headers: await authHeader()
+    })
+
+    return handleStatusCode(res)
+
+}
+
+
 export const serverMutation = async (path, data, method = 'POST') => {
     const res = await fetch(`${baseUrl}${path}`, {
         method: method,
         headers: {
             'Content-Type': 'application/json',
+            ...(await authHeader()),
         },
         body: JSON.stringify(data),
+        cache: 'no-store'
     });
 
-
     return handleStatusCode(res);
-}
+};
 
 
 
 
 const handleStatusCode = async (res) => {
+    const data = await res.json();
+
     if (!res.ok) {
-        throw new Error(`Fetch failed with status: ${res.status}`);
+        throw new Error(
+            data.message || `Fetch failed with status: ${res.status}`
+        );
     }
 
-    return res.json();
+    return data;
 };

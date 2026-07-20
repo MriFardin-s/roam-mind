@@ -14,8 +14,17 @@ export default function Footer() {
                         </p>
                     </div>
                     <Link href="/explore" className="flex-shrink-0">
-                        <button className="px-6 py-3.5 bg-foreground text-background hover:bg-primary hover:text-primary-foreground font-black text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 active:scale-95 cursor-pointer">
-                            Explore Catalogs
+                        <button className="px-6 py-3.5 bg-foreground text-background hover:bg-primary hover:text-primary-foreground font-black text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 active:scale-95 cursor-pointer flex items-center justify-center gap-2 group">
+                            <span>Explore Catalogs</span>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
                         </button>
                     </Link>
                 </div>
@@ -25,9 +34,18 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 border-b border-border pb-12">
 
                     <div className="space-y-4 md:col-span-1">
-                        <Link href="/" className="inline-block">
-                            <h3 className="text-xl font-black tracking-tight">
-                                Wonder <span className="text-primary">Catalogs</span>
+                        <Link href="/" className="inline-block group">
+                            <h3 className="text-xl font-black tracking-tight flex items-center gap-2">
+                                <span> Roam Mind <span className="text-primary">Catalogs</span></span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5 text-primary transform group-hover:translate-x-1 transition-transform duration-200"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
                             </h3>
                         </Link>
                         <p className="text-xs text-muted-foreground font-medium leading-relaxed max-w-xs">

@@ -54,8 +54,8 @@ const ManageItemsTable = ({ initialItems, role }) => {
                         <th className="px-6 py-3">Title</th>
                         <th className="px-6 py-3">Location</th>
                         <th className="px-6 py-3">Category</th>
-                        {role === 'admin' && <th className="px-6 py-3">Added By</th>}
-                        <th className="px-6 py-3">Status</th>
+                        {/* {role === 'admin' && <th className="px-6 py-3">Added By</th>}
+                        <th className="px-6 py-3">Status</th> */}
                         <th className="px-6 py-3 text-center">Actions</th>
                     </tr>
                 </thead>
@@ -76,19 +76,19 @@ const ManageItemsTable = ({ initialItems, role }) => {
                                 <td className="px-6 py-4 font-medium text-gray-900">{item.title}</td>
                                 <td className="px-6 py-4">{item.location}</td>
                                 <td className="px-6 py-4 capitalize">{item.category}</td>
-                                {role === 'admin' && (
+                                {/* {role === 'admin' && (
                                     <td className="px-6 py-4">
                                         <span className="block font-semibold">{item.user?.name}</span>
                                         <span className="text-xs text-gray-400">{item.user?.email}</span>
                                     </td>
-                                )}
-                                <td className="px-6 py-4">
+                                )} */}
+                                {/* <td className="px-6 py-4">
                                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
                                         item.status === 'pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'
                                     }`}>
                                         {item.status}
                                     </span>
-                                </td>
+                                </td> */}
                                 <td className="px-6 py-4 text-center">
                                     <div className="flex items-center justify-center gap-3">
                                         <Link

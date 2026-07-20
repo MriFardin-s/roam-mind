@@ -24,8 +24,8 @@ export default function Navbar() {
         { name: 'Home', href: '/' },
         { name: 'Explore Destinations', href: '/explore' },
         ...(showPrivateLinks ? [
-            { name: 'AI Trip Planner', href: '/planner' },
-            { name: 'Smart Explore', href: '/explore-ai' }
+            { name: 'Smart Recommendations', href: '/planner' },
+            { name: 'Ask Roam Mind AI', href: '/explore-ai' }
         ] : [])
     ];
 

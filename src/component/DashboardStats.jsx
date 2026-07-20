@@ -97,7 +97,7 @@ const DashboardStats = () => {
                     Platform Analytics
                 </span>
                 <h2 className="text-3xl font-black tracking-tight text-foreground">
-                    Wonder Catalogs In Metrics
+                    Roam Mind Catalogs In Metrics
                 </h2>
             </div>
 

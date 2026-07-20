@@ -77,7 +77,7 @@ export default function Hero() {
                                     transition={{ duration: 0.5, ease: "circOut" }}
                                 >
                                     <span className="text-xs font-black uppercase tracking-widest bg-primary/10 text-primary px-3 py-1.5 rounded-md border border-primary/20">
-                                        Wonder Catalogs
+                                        Roam Mind Catalogs
                                     </span>
                                 </motion.div>
                             </AnimatePresence>
@@ -117,29 +117,39 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="pt-4 flex flex-wrap items-center gap-4"
+                            className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
                         >
-                            <Link href="/explore-ai">
-                                <button onClick={() => {
-                                    window.scrollTo({
-                                        top: window.innerHeight * 0.65,
-                                        behavior: 'smooth'
-                                    });
-                                }} className="group px-6 py-3.5 bg-primary text-primary-foreground hover:bg-primary/90 font-black text-xs uppercase tracking-widest rounded-xl shadow-lg transition-all duration-300 active:scale-95 cursor-pointer flex items-center gap-2">
-                                    Start Journey
-                                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            {/* 1. Start Journey Button */}
+                            <Link href="/explore-ai" className="flex-1 sm:flex-none">
+                                <button
+                                    onClick={() => {
+                                        window.scrollTo({
+                                            top: window.innerHeight * 0.65,
+                                            behavior: 'smooth'
+                                        });
+                                    }}
+                                    className="w-full py-3 px-6 bg-foreground hover:bg-primary text-background hover:text-primary-foreground font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 active:scale-[0.97] cursor-pointer text-center flex items-center justify-center gap-2 group"
+                                >
+                                    <span>Start Journey</span>
+                                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
                                 </button>
                             </Link>
 
-
-                            <div className="flex items-center bg-card border border-border rounded-xl p-1 shadow-sm">
-                                <button onClick={prevSlide} className="p-2 hover:bg-secondary rounded-lg text-muted-foreground hover:text-foreground transition cursor-pointer">
+                            {/* 2. Slider Controls */}
+                            <div className="flex items-center justify-center bg-card border border-border rounded-xl p-1 shadow-sm shrink-0">
+                                <button
+                                    onClick={prevSlide}
+                                    className="p-2 hover:bg-secondary rounded-lg text-muted-foreground hover:text-foreground transition cursor-pointer"
+                                >
                                     <ChevronLeft className="w-4 h-4" />
                                 </button>
-                                <span className="text-xs font-black tracking-widest px-3 min-w-[45px] text-center text-muted-foreground">
+                                <span className="text-xs font-black tracking-widest px-3 min-w-[45px] text-center text-muted-foreground select-none">
                                     0{slides[current].id}
                                 </span>
-                                <button onClick={nextSlide} className="p-2 hover:bg-secondary rounded-lg text-muted-foreground hover:text-foreground transition cursor-pointer">
+                                <button
+                                    onClick={nextSlide}
+                                    className="p-2 hover:bg-secondary rounded-lg text-muted-foreground hover:text-foreground transition cursor-pointer"
+                                >
                                     <ChevronRight className="w-4 h-4" />
                                 </button>
                             </div>

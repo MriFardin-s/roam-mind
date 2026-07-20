@@ -4,7 +4,14 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const LatestItems = async () => {
-    const response = await getLatestItems();
+    let response = null;
+
+    try {
+        response = await getLatestItems();
+    } catch (error) {
+        console.error("Failed to fetch latest items:", error);
+    }
+
     const items = response?.data || [];
 
     return (
@@ -14,7 +21,7 @@ const LatestItems = async () => {
                     Curated Catalogs
                 </span>
                 <h2 className="text-3xl font-black tracking-tight text-foreground">
-                    Latest Wonder Entries
+                    Latest Roam Mind Entries
                 </h2>
             </div>
 
@@ -92,7 +99,6 @@ const LatestItems = async () => {
                         })}
                     </div>
 
-                    {/* View All Link Section */}
                     <div className="mt-12 flex justify-center">
                         <Link href="/explore">
                             <button className="w-fit flex items-center justify-center gap-2 px-6 py-4 bg-foreground hover:bg-primary text-background hover:text-primary-foreground font-black text-xs uppercase tracking-widest rounded-xl transition-all duration-300 active:scale-[0.97] cursor-pointer group">
